@@ -1,0 +1,5 @@
+﻿  main.cpp
+C:\Users\frede\source\repos\TP1_IFT339\TP1_IFT339\main.cpp(42,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  rectangle.cpp
+  Generating Code...
+  TP1_IFT339.vcxproj -> C:\Users\frede\source\repos\TP1_IFT339\x64\Debug\TP1_IFT339.exe
