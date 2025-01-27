@@ -1,8 +1,8 @@
 /**
-* \ file polygone.cpp
-* \ author Aida Ouangraoua
+* \ file rectangle.cpp
+* \ author Frederick Taylor & Anaïs Lanthier 
 * \ brief Ce fichier contient l'implementation
-* des operations du type Polygone
+* des operations du type Rectangle
 */
 
 #include "rectangle.h"

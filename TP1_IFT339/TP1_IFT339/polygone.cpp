@@ -35,7 +35,7 @@ float Polygone::calculerCirconference(){
   float  circonference = 0.0;
 
   for (int i = 0; i < nb_sommets; i++) {
-      circonference += sommets[i].calculerDistance(sommets[i + 1]);
+      circonference += sommets[i].calculerDistance(sommets[(i + 1) %  nb_sommets]);
   }
   return circonference;
 }

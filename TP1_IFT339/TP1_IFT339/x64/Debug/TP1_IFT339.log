@@ -1,5 +1,20 @@
-﻿  main.cpp
-C:\Users\frede\source\repos\TP1_IFT339\TP1_IFT339\main.cpp(42,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  cercle.cpp
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\cercle.cpp(27,26): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\cercle.cpp(32,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  main.cpp
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\main.cpp(42,30): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  plan.cpp
+  point.cpp
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(22,23): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(44,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(53,19): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(56,21): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(64,38): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(68,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(70,20): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\TP1_IFT339\point.cpp(104,14): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  polygone.cpp
   rectangle.cpp
+  triangle.cpp
   Generating Code...
-  TP1_IFT339.vcxproj -> C:\Users\frede\source\repos\TP1_IFT339\x64\Debug\TP1_IFT339.exe
+  TP1_IFT339.vcxproj -> C:\Users\frede\Documents\Projects\GitKraken Repo\IFT339\TP1_IFT339\x64\Debug\TP1_IFT339.exe
