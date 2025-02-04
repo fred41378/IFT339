@@ -67,12 +67,18 @@ const TYPE& vector<TYPE>::front()const
 template <typename TYPE>
 TYPE& vector<TYPE>::operator[](size_t i)
 {
+  if(i >= size()){
+    throw std::out_of_range("vecteur index out of range.");
+    }
   return DEBUT[i];
 }
 
 template <typename TYPE>
 const TYPE& vector<TYPE>::operator[](size_t i)const
 {
+  if(i >= size()){
+    throw std::out_of_range("vecteur index out of range.");
+  }
   return DEBUT[i];
 }
 

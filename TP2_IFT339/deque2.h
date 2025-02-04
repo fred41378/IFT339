@@ -11,13 +11,19 @@
 template <typename TYPE>
 deque<TYPE>::deque(size_t D)
 {
-  /*... a completer ...*/
+  if (D == 0) {
+    DEBUT_CAP  = FIN_CAP = nullptr;
+  } else {
+    DEBUT_CAP = new TYPE[D];
+    FIN_CAP = DEBUT_CAP + D;
+  }
 }
 
 template <typename TYPE>
 deque<TYPE>::deque(const deque& source) :deque()
 {
-  /*... a completer ...*/
+  size() = source.size();
+
 }
 
 template <typename TYPE>

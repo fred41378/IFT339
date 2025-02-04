@@ -4,14 +4,27 @@
 
 int main()
 {
-    std::cout << "Tests des fonctions" << std::endl;
-
     int testSize = 5;
+    string lignesSeparation = "\n====================================";
 
+#pragma region vecteurs
+    std::cout << "Tests des fonctions de vector2" << std::endl;
 
-    std::cout << "\n======================";
-    std::cout << "\nDEBUT TEST DE PUSH BACK";
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) DEBUT TEST DU CONSTRUCTEUR";
+    std::cout << lignesSeparation << std::endl;
+    std::cout << "\nCreation d'un vecteur de taille: " << testSize << std::endl;
+    vector<int> vector0(testSize);
+    vector0.afficher();
+
+    vector0.clear();
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) FIN TEST DU CONSTRUCTEUR";
     std::cout << "\n======================" << std::endl;
+
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) DEBUT TEST DE PUSH BACK";
+    std::cout << lignesSeparation << std::endl;
     vector<int> vector1(testSize);
 
     std::cout << "\nEtat initial du vecteur 1:" << std::endl;
@@ -22,7 +35,7 @@ int main()
         vector1.push_back(i + 1);
         std::cout << "\nApres push_back(" << i + 1 << "):";
         vector1.afficher();
-        std::cout << "\n======================" << std::endl;
+        std::cout << lignesSeparation << std::endl;
     }
 
     std::cout << "\nAjout d'elements, mais le vecteur est deja full:" << std::endl;
@@ -31,13 +44,13 @@ int main()
     vector1.afficher();
 
     vector1.clear();
-    std::cout << "\n======================";
-    std::cout << "\nFIN TEST DE PUSH BACK";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) FIN TEST DE PUSH BACK";
+    std::cout << lignesSeparation << std::endl;
 
-    std::cout << "\n======================";
-    std::cout << "\nDEBUT TEST DE RESERVE";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) DEBUT TEST DE RESERVE";
+    std::cout << lignesSeparation << std::endl;
 
     vector<int> vector2(testSize);
 
@@ -53,13 +66,13 @@ int main()
     vector2.afficher();
 
     vector2.clear();
-    std::cout << "\n======================";
-    std::cout << "\nFIN TEST DE RESERVE";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) FIN TEST DE RESERVE";
+    std::cout << lignesSeparation << std::endl;
 
-    std::cout << "\n======================";
-    std::cout << "\nDEBUT TEST DE RESIZE";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) DEBUT TEST DE RESIZE";
+    std::cout << lignesSeparation << std::endl;
 
     vector<int> vector3(testSize);
 
@@ -80,13 +93,13 @@ int main()
     vector3.afficher();
 
     vector3.clear();
-    std::cout << "\n======================";
-    std::cout << "\nFIN TEST DE RESIZE";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) FIN TEST DE RESIZE";
+    std::cout << lignesSeparation << std::endl;
 
-    std::cout << "\n======================";
-    std::cout << "\nDEBUT TEST DE BACK";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) DEBUT TEST DE BACK";
+    std::cout << lignesSeparation << std::endl;
 
     vector<int> vector4(testSize);
 
@@ -106,7 +119,7 @@ int main()
 
     const vector<int>& vector5 = vector4;
 
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation << std::endl;
     std::cout << "\nEtat initial du vecteur 5 (un const et une copie du vecteur 4):" << std::endl;
     vector5.afficher();
 
@@ -115,13 +128,13 @@ int main()
 
     vector4.clear();
 
-    std::cout << "\n======================";
-    std::cout << "\nFIN TEST DE BACK";
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) FIN TEST DE BACK";
     std::cout << "\n======================" << std::endl;
 
-    std::cout << "\n======================";
-    std::cout << "\nDEBUT TEST DE FRONT";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) DEBUT TEST DE FRONT";
+    std::cout << lignesSeparation << std::endl;
 
     vector<int> vector6(testSize);
 
@@ -141,7 +154,7 @@ int main()
 
     const vector<int>& vector7 = vector6;
 
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation << std::endl;
     std::cout << "\nEtat initial du vecteur 7 (un const et une copie du vecteur 6):" << std::endl;
     vector7.afficher();
 
@@ -149,13 +162,13 @@ int main()
 
     vector6.clear();
 
-    std::cout << "\n======================";
-    std::cout << "\nFIN TEST DE FRONT";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) FIN TEST DE FRONT";
+    std::cout << lignesSeparation << std::endl;
 
-    std::cout << "\n======================";
-    std::cout << "\nDEBUT TEST DE OPERATOR[]";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) DEBUT TEST DE OPERATOR[]";
+    std::cout << lignesSeparation << std::endl;
 
     vector<int> vector8(testSize);
 
@@ -178,7 +191,7 @@ int main()
 
     const vector<int>& vector9 = vector8;
 
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation << std::endl;
     std::cout << "\nEtat initial du vecteur 9 (un const et une copie du vecteur 8):" << std::endl;
     vector9.afficher();
 
@@ -188,9 +201,32 @@ int main()
 
     vector8.clear();
 
-    std::cout << "\n======================";
-    std::cout << "\nFIN TEST DE OPERATOR[]";
-    std::cout << "\n======================" << std::endl;
+    std::cout << lignesSeparation;
+    std::cout << "\n(vecteurs) FIN TEST DE OPERATOR[]";
+    std::cout << lignesSeparation << std::endl;
 
+#pragma endregion vecteurs
+
+#pragma region deques
+    std::cout << "Tests des fonctions de deque2" << std::endl;
+
+    std::cout << lignesSeparation;
+    std::cout << "\n(deques) DEBUT TEST DU CONSTRUCTEUR";
+    std::cout << lignesSeparation << std::endl;
+
+    std::cout << "\nCreation d'un deque de taille: " << testSize << std::endl;
+    deque<int> deque0(testSize);
+    deque0.afficher();
+
+    std::cout << "\nCreation d'un deque qui est une cope de deque 0: " << testSize << std::endl;
+    const deque<int>& deque1 = deque0;
+    deque1.afficher();
+
+    deque0.clear();
+    std::cout << lignesSeparation;
+    std::cout << "\n(deques) FIN TEST DU CONSTRUCTEUR";
+    std::cout << lignesSeparation << std::endl;
+
+#pragma endregion deques
     return 0;
 }
