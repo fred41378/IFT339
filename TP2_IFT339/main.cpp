@@ -215,10 +215,15 @@ int main()
     cout << lignesSeparation << endl;
     cout << "\nCreation d'un deque de taille: " << testSize << endl;
     deque<int> deque0(testSize);
+    deque0.push_back(1);
+    deque0.push_back(2);
+    deque0.push_back(3);
+    deque0.push_back(4);
+    deque0.push_back(5);
     deque0.afficher();
 
     cout << "\nCreation d'un deque par copie de deque0:" << endl;
-    deque<int> deque1(deque0);
+    const deque<int>& deque1 = deque0;
     deque1.afficher();
 
     deque0.clear();
@@ -317,5 +322,4 @@ int main()
     cout << lignesSeparation << endl;
 #pragma endregion deques
 
-    return 0;
 }

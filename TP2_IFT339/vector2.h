@@ -10,13 +10,9 @@
 template <typename TYPE>
 vector<TYPE>::vector(size_t D)
 {
-  if (D == 0) {
-    DEBUT = FIN_DIM = FIN_CAP = nullptr;
-  } else {
-    DEBUT = new TYPE[D];
-    FIN_DIM = DEBUT;
-    FIN_CAP = DEBUT + D;
-  }
+  DEBUT = new TYPE[D];
+  FIN_DIM = DEBUT;
+  FIN_CAP = DEBUT + D;
 }
 
 template <typename TYPE>
@@ -43,32 +39,47 @@ void vector<TYPE>::reserve(size_t nCAP)
 template <typename TYPE>
 TYPE& vector<TYPE>::back()
 {
+  if (empty()) {
+    throw std::out_of_range("Vector is empty");
+  }
   return DEBUT[size()-1];
 }
 
 template <typename TYPE>
 const TYPE& vector<TYPE>::back()const
 {
+  if (empty()) {
+    throw std::out_of_range("Vector is empty");
+  }
   return DEBUT[size()-1];
 }
 
 template <typename TYPE>
 TYPE& vector<TYPE>::front()
 {
+  if (empty()) {
+    throw std::out_of_range("Vector is empty");
+  }
   return DEBUT[0];
 }
 
 template <typename TYPE>
 const TYPE& vector<TYPE>::front()const
 {
+  if (empty()) {
+    throw std::out_of_range("Vector is empty");
+  }
   return DEBUT[0];
 }
 
 template <typename TYPE>
 TYPE& vector<TYPE>::operator[](size_t i)
 {
+  if (empty()) {
+    throw std::out_of_range("Vector is empty");
+  }
   if(i >= size()){
-    throw std::out_of_range("vecteur index out of range.");
+    throw std::out_of_range("Vector index out of range.");
     }
   return DEBUT[i];
 }
@@ -76,8 +87,11 @@ TYPE& vector<TYPE>::operator[](size_t i)
 template <typename TYPE>
 const TYPE& vector<TYPE>::operator[](size_t i)const
 {
+  if (empty()) {
+    throw std::out_of_range("Vector is empty");
+  }
   if(i >= size()){
-    throw std::out_of_range("vecteur index out of range.");
+    throw std::out_of_range("Vector index out of range.");
   }
   return DEBUT[i];
 }

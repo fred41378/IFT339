@@ -11,33 +11,18 @@
 template <typename TYPE>
 deque<TYPE>::deque(size_t D)
 {
-  if (D == 0) {
-    DEBUT_CAP = FIN_CAP = nullptr;
-    FRONT = BACK = nullptr;
-  } else {
-    DEBUT_CAP = new TYPE[D];
-    FIN_CAP = DEBUT_CAP + D;
-    FRONT = BACK = nullptr;
-  }
+  DEBUT_CAP = new TYPE[D];
+  FIN_CAP = DEBUT_CAP + D;
+  FRONT = BACK = nullptr;
 }
 
 template <typename TYPE>
 deque<TYPE>::deque(const deque& source) :deque()
 {
-  size_t n = source.size();
-  if(n == 0) {
-    DEBUT_CAP = FIN_CAP = nullptr;
-    FRONT = BACK = nullptr;
-  } else {
-    DEBUT_CAP = new TYPE[n];
-    FIN_CAP = DEBUT_CAP + n;
-    for(size_t i = 0; i < n; i++){
-      DEBUT_CAP[i] = source[i];
-    }
-    FRONT = DEBUT_CAP;
-    BACK = DEBUT_CAP + n - 1;
+  resize(source.size());
+  for (size_t i = 0; i < size(); i++) {
+    DEBUT_CAP[i] = TYPE(source[i]);
   }
-
 }
 
 template <typename TYPE>
@@ -63,7 +48,7 @@ void deque<TYPE>::reserve(size_t nCAP)
   if(nCAP <= oldCap) {
     return;
   }
-  TYPE* temp = new TYPE[nCAP];
+  TYPE* temp = new TYPE[nCAP]();
 
   size_t currentSize = size();
   for (size_t i = 0; i < currentSize; i++){
@@ -98,7 +83,7 @@ void deque<TYPE>::push_front(const TYPE& x)
 
   if (cap == 0) {
     reserve(1);
-    cap =1;
+    cap = 1;
   }
   else if (cap == dim) {
     reserve(cap*2);
@@ -151,13 +136,14 @@ void deque<TYPE>::push_back(const TYPE& x)
 template <typename TYPE>
 size_t deque<TYPE>::size()const
 {
-  if (FRONT == nullptr)
+  if (FRONT == nullptr) {
     return 0;
+  }
 
-  if (FRONT <= BACK)
+  if (FRONT <= BACK) {
     return BACK - FRONT + 1;
-  else
-    return FIN_CAP - FRONT + (BACK - DEBUT_CAP + 1);
+  }
+  return FIN_CAP - FRONT + (BACK - DEBUT_CAP + 1);
 }
 
 template <typename TYPE>
@@ -170,7 +156,7 @@ template <typename TYPE>
 TYPE& deque<TYPE>::operator[](size_t i)
 {
   size_t cap = FIN_CAP - DEBUT_CAP;
-  size_t index = ( (FRONT - DEBUT_CAP) + i ) % cap;
+  size_t index = ( FRONT - DEBUT_CAP + i ) % cap;
   return DEBUT_CAP[index];
 }
 
@@ -178,21 +164,25 @@ template <typename TYPE>
 const TYPE& deque<TYPE>::operator[](size_t i) const
 {
   size_t cap = FIN_CAP - DEBUT_CAP;
-  size_t index = ( (FRONT - DEBUT_CAP) + i ) % cap;
+  size_t index = ( FRONT - DEBUT_CAP + i ) % cap;
   return DEBUT_CAP[index];
 }
 
 template <typename TYPE>
 TYPE& deque<TYPE>::at(size_t i)
 {
-  assert(i < size());
+  if (i >= size()) {
+    throw std::out_of_range("Deque index out of range.");
+  }
   return (*this)[i];
 }
 
 template <typename TYPE>
-const TYPE& deque<TYPE>::at(size_t i) const
+const TYPE& deque<TYPE>::at(size_t i)const
 {
-  assert(i < size());
+  if (i >= size()) {
+    throw std::out_of_range("Deque index out of range.");
+  }
   return (*this)[i];
 }
 
