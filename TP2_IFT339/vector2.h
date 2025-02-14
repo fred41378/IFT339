@@ -26,18 +26,18 @@ void vector<TYPE>::reserve(size_t nCAP)
   if (currentCapacity >= nCAP) {
     return;
   }
-  TYPE* tmp = new TYPE[nCAP]();
+  TYPE* temp = new TYPE[nCAP]();
 
   size_t currentSize = FIN_DIM - DEBUT;
   for (size_t i = 0; i < currentSize; ++i) {
-    tmp[i] = DEBUT[i];
+    temp[i] = DEBUT[i];
   }
 
   delete[] DEBUT;
 
-  DEBUT = tmp;
-  FIN_DIM = tmp + currentSize;
-  FIN_CAP = tmp + nCAP;
+  DEBUT = temp;
+  FIN_DIM = temp + currentSize;
+  FIN_CAP = temp + nCAP;
 }
 
 template <typename TYPE>
