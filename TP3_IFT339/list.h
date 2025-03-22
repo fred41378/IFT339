@@ -141,7 +141,7 @@ template <typename TYPE>
 list<TYPE>::list():SIZE(0){
   cellule* fin = new cellule(TYPE());
   DEBUT = new cellule(TYPE(),fin,fin);
-  fin->PREC = DEBUT;  
+  fin->PREC = DEBUT;
 }
 	
 template <typename TYPE>
