@@ -21,7 +21,7 @@ typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tcle
   noeud* lower = APRES;
 
   while (n != nullptr) {
-    if (!(n->CONTENU->first >= c)) {
+    if (n->CONTENU->first >= c) {
       lower = n;
       n = n->GAUCHE;
     } else {
@@ -79,15 +79,19 @@ typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::insert(iterator j, con
 
 template <typename Tclef, typename Tvaleur>
   size_t map<Tclef,Tvaleur>::erase(const Tclef& c){
-  if (empty()) return 0;
+  if(empty()) return 0;
 
-  noeud* noeud_a_remplacer = nullptr;
   noeud* racine = APRES->GAUCHE;
+  noeud* a_remplacer = nullptr;
+  bool suppression = erase(c, racine, a_remplacer);
 
-  bool erased = erase(c, racine, noeud_a_remplacer);
-
-  if (erased == true) {
+  if(suppression) {
     APRES->GAUCHE = racine;
+    if(a_remplacer) {
+      while(racine->PARENT != APRES)
+        racine = racine->PARENT;
+      APRES->GAUCHE = racine;
+    }
     return 1;
   }
   return 0;
