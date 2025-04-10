@@ -66,5 +66,19 @@ int main() {
     map_erase_clef.erase(20);
     map_erase_clef.afficher();
 
+
+    std::cout << lignesSeparation;
+    std::cout << "\nTEST GROS ECHAN";
+    std::cout << lignesSeparation << std::endl;
+
+    map<int,std::string> map_bigass;
+    for (int i = 0; i < 16; ++i) {
+        map_bigass.insert(i);
+        map_bigass[i] = std::to_string(i);
+    }
+    map_bigass.afficher();
+    map_bigass.verifier_hauteurs();
+
+
     return 0;
 }
