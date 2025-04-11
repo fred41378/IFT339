@@ -21,7 +21,7 @@ typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tcle
   noeud* lower = APRES;
 
   while (n != nullptr) {
-    if (n->CONTENU->first >= c) {
+    if (!(n->CONTENU->first >= c)) {
       lower = n;
       n = n->GAUCHE;
     } else {
@@ -36,45 +36,32 @@ typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::lower_bound(const Tcle
 template <typename Tclef, typename Tvaleur>
 typename map<Tclef,Tvaleur>::iterator map<Tclef,Tvaleur>::insert(iterator j, const Tclef& c) {
   if (j == end()) {
-    if (!empty()) {
-      noeud* noeud_max = APRES->GAUCHE;
-      while (noeud_max->DROITE != nullptr) {
-        noeud_max = noeud_max->DROITE;
-      }
-      if (c > noeud_max->CONTENU->first) {
-        iterator it;
-        if (ajoute_droite(c, noeud_max, it)) {
-          return it;
-        }
-      }
-    }
-    return insert(c).first;
-  } else {
-    noeud* indice_noeud = j.POINTEUR;
-    if (indice_noeud->CONTENU->first == c) {
-      return j;
-    }
-    if (c < indice_noeud->CONTENU->first) {
-      iterator prec = j;
-      --prec;
-      if (prec == end() || prec->first < c) {
-        iterator it;
-        if (ajoute_gauche(c, indice_noeud, it)) {
-          return it;
-        }
-      }
-    } else {
-      iterator suiv = j;
-      ++suiv;
-      if (suiv == end() || suiv->first > c) {
-        iterator it;
-        if (ajoute_droite(c, indice_noeud, it)) {
-          return it;
-        }
-      }
-    }
     return insert(c).first;
   }
+  noeud* indice_noeud = j.POINTEUR;
+  if (indice_noeud->CONTENU->first == c) {
+    return j;
+  }
+  if (c < indice_noeud->CONTENU->first) {
+    iterator prec = j;
+    --prec;
+    if (prec == end() || prec->first < c) {
+      iterator it;
+      if (insert(c, indice_noeud, it)) {
+        return it;
+      }
+    }
+  } else {
+    iterator suiv = j;
+    ++suiv;
+    if (suiv == end() || suiv->first > c) {
+      iterator it;
+      if (insert(c, indice_noeud, it)) {
+        return it;
+      }
+    }
+  }
+  return insert(c).first;
 }
 
 template <typename Tclef, typename Tvaleur>
